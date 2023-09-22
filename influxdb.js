@@ -18,6 +18,7 @@ module.exports = function (RED) {
         this.port = n.port;
         this.database = n.database;
         this.name = n.name;
+        this.timeout = n.timeout;
 
         var clientOptions = null;
         
@@ -61,7 +62,8 @@ module.exports = function (RED) {
             clientOptions = {
                 url: n.url,
                 rejectUnauthorized: n.rejectUnauthorized,
-                token
+                token,
+                timeout: n.timeout
             }
             this.client = new InfluxDB(clientOptions);
         }
@@ -72,7 +74,7 @@ module.exports = function (RED) {
         credentials: {
             username: { type: "text" },
             password: { type: "password" },
-            token: { type: "password" }
+            token: { type: "password" },
         }
     });
 

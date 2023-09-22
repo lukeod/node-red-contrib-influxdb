@@ -41,6 +41,10 @@
         <input type="checkbox" id="node-config-input-rejectUnauthorized" style="display: inline-block; width: auto; vertical-align: top;">
         <label for="node-config-input-rejectUnauthorized" style="width: auto" data-i18n="influxdb.label.reject-unauthorized"></label>
     </div>
+    <div class="form-row" id="node-config-row-timeout">
+        <label for="node-config-input-timeout"><i class="fa fa-timeout"></i> <span data-i18n="node-red:common.label.timeout"></span></label>
+        <input type="text" id="node-config-input-timeout">
+    </div>
     <div class="form-row" id="node-config-row-enableSecureConnection">
         <input type="checkbox" id="node-config-input-usetls" style="display: inline-block; width: auto; vertical-align: top;">
         <label for="node-config-input-usetls" style="width: auto" data-i18n="influxdb.label.use-tls"></label>
@@ -61,7 +65,8 @@
         color: "rgb(218, 196, 180)",
         defaults: {
             hostname: {value: "127.0.0.1", required: true},
-            port: {value: 8086, required: true},            
+            port: {value: 8086, required: true},      
+            timeout: {value: 10000, required: true},       
 			protocol: {value: "http", required: true},
             database: {value: "database",
                 validate:function(db) {
@@ -118,6 +123,7 @@
                 $("#node-config-row-password").show();
                 $("#node-config-row-token").hide();
                 $("#node-config-row-rejectUnauthorized").hide();   
+                $("#node-config-row-timeout").show();
                 $("#node-config-row-enableSecureConnection").show();                
             }
 
@@ -128,7 +134,8 @@
                 $("#node-config-row-username").show();
                 $("#node-config-row-password").show();
                 $("#node-config-row-token").hide();
-                $("#node-config-row-rejectUnauthorized").show();   
+                $("#node-config-row-rejectUnauthorized").show();
+                $("#node-config-row-timeout").show();  
                 $("#node-config-row-enableSecureConnection").hide();   
             }
 
@@ -139,7 +146,8 @@
                 $("#node-config-row-username").hide();
                 $("#node-config-row-password").hide();
                 $("#node-config-row-token").show();
-                $("#node-config-row-rejectUnauthorized").show();   
+                $("#node-config-row-rejectUnauthorized").show();
+                $("#node-config-row-timeout").show();      
                 $("#node-config-row-enableSecureConnection").hide();  
             }
 
