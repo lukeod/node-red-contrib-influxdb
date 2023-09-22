@@ -63,7 +63,7 @@ module.exports = function (RED) {
                 url: n.url,
                 rejectUnauthorized: n.rejectUnauthorized,
                 token,
-                timeout: n.timeout
+                timeout: parseInt(n.timeout)
             }
             this.client = new InfluxDB(clientOptions);
         }
